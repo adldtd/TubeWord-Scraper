@@ -2,7 +2,6 @@ pyvenv.cfg
 /Include/
 /Lib/
 /Scripts/
-/filter/
 /youtubeScraper/*.env
 /youtubeScraper/__pycache__/
 /youtubeScraper/.vs/
