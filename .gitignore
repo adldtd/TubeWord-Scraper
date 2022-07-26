@@ -1,0 +1,16 @@
+pyvenv.cfg
+/Include/
+/Lib/
+/Scripts/
+/filter/
+/youtubeScraper/*.env
+/youtubeScraper/__pycache__/
+/youtubeScraper/.vs/
+/youtubeScraper/deleted_words/*
+/youtubeScraper/csv/*
+/youtubeScraper/searchedSet.p
+/youtubeScraper/usedLinks.p
+/youtubeScraper/wordLinks.p
+/youtubeScraper/*.sln
+/youtubeScraper/*.pyproj
+/youtubeScraper/youtubeConnect.py
