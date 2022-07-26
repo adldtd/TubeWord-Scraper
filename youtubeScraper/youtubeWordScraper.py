@@ -13,7 +13,7 @@ class youtubeSearcher():
     def __init__(self):
         self.searchedSet = set() #Records used terms
         self.wordLinks = {} #Records youtube links with dictionary words in them
-        self.usedLinks = set() #Records all found links with the search term;
+        self.usedLinks = set() #Records all found links with the search term
         self.words = set() #Records every word in the dictionary
 
         self.searchTermRepetitions = 0 #Records how many tries it took to get a new search term
@@ -22,7 +22,8 @@ class youtubeSearcher():
         self.newWords = set() #Records how many new words have been added
         self.sync = True #Shows if the program has finished adding links to both usedLinks and wordLinks; Experimental, only useful for emergencySave
 
-        self.PREDICTED_AVERAGE_ITERATION = 0.8661545411745707 #Approx. predicted time for each iteration
+        self.TIMEOUT = 1 #Seconds to wait before making another request
+        self.PREDICTED_AVERAGE_ITERATION = self.TIMEOUT + 0.8661545411745707 #Approx. predicted time for each iteration
         self.MAX_LINKS_PER_WORD = 300 #How many links are limited to each word entry in wordLinks
         self.NON_ALPHABETICAL_LINK_CHARS = re.compile(r'[\-\d_]+') #The non alphabetic characters possible in a youtube link; used for splitting a link
 
@@ -206,6 +207,7 @@ class youtubeSearcher():
 
                 if (method == 0): #HTTP request to site
 
+                    time.sleep(self.TIMEOUT)
                     site = session.get(link)
 
                     linkGet = False
