@@ -1,4 +1,5 @@
 import requests
+import platform
 import random
 import os
 import pickle
@@ -192,12 +193,16 @@ class youtubeSearcher():
 
         counter = 0
         start = time.time() #Timer for tracking the time the function takes
+        SYS = platform.system()
 
         with requests.Session() as session:
 
             while (counter < reps):
 
-                os.system('cls') #EXTRA FUNCTION: Clears the screen
+                if (SYS == "Windows"):
+                    os.system('cls') #EXTRA FUNCTION: Clears the screen
+                elif (SYS == "Linux" or SYS == "Darwin"): #Linux and MacOS
+                    os.system('clear')
                 print(f'Iteration: {counter + 1}/{reps}')
 
                 localUsedLinks = set() #Playlists showing up in results means that the same video link is often repeated; this keeps track of every video went through before all the links are added to the global list
